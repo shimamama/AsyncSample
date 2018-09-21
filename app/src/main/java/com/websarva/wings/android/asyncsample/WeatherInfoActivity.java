@@ -89,9 +89,9 @@ public class WeatherInfoActivity extends AppCompatActivity {
     private class ListItemClickListener implements AdapterView.OnItemClickListener{
 
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int possition, long id){
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id){
             //ListViewでタップされた行の都市名と都市IDを取得
-            Map<String, String> item = (Map<String, String>) parent.getItemAtPosition(possition);
+            Map<String, String> item = (Map<String, String>) parent.getItemAtPosition(position);
             String cityName = item.get("name");
             String cityId = item.get("id");
 
@@ -123,7 +123,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
         /**
          * 天気の詳細を表示する画面部品フィールド
          */
-        private TextView _tvWeatherDesk;
+        private TextView _tvWeatherDesc;
 
         /**
          * コンストラクタ
@@ -132,7 +132,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
         public WeatherInfoReceiver(TextView tvWeatherTelop, TextView tvWeatherDesc){
             //引数をそれぞれのフィールドに格納
             _tvWeatherTelop = tvWeatherTelop;
-            _tvWeatherDesk = tvWeatherDesc;
+            _tvWeatherDesc = tvWeatherDesc;
         }
 
         @Override
@@ -142,7 +142,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
             String id = params[0];
 
             //都市IDを使って接続URL文字列を作成
-            String urlStr = "http://weather.livedoor.com/forecast/webservice/json/v1?city=" + id;
+            String urlStr = "http://weather.livedoor.com/forecast/webservice/json/v1?city="+id;
 
             //天気情報サービスから取得したJSON文字列、天気情報が格納されている
             String result = "";
@@ -224,10 +224,10 @@ public class WeatherInfoActivity extends AppCompatActivity {
                 JSONArray forecasts = rootJSON.getJSONArray("forecasts");
 
                 //「forecasts」JSON配列の1つ目(インデックス0)のJSONオブジェクトを取得
-                JSONObject forecastsNow = forecasts.getJSONObject(0);
+                JSONObject forecastNow = forecasts.getJSONObject(0);
 
                 //「forecasts」1つ目のJSONオブジェクトから「telop」文字列(天気)を取得
-                telop = forecastsNow.getString("telop");
+                telop = forecastNow.getString("telop");
             }
             catch (JSONException ex){
 
@@ -235,7 +235,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
 
             //天気情報用文字列をTextViewにセット
             _tvWeatherTelop.setText(telop);
-            _tvWeatherDesk.setText(desc);
+            _tvWeatherDesc.setText(desc);
         }
 
     }

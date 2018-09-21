@@ -6,15 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    //都市リストを表示する
     <ListView
         android:id="@+id/lvCityList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"/>
-                              //画面の上半分にするため0.5
 
-    //お天気情報を表示する画面下半分のLinearLayout
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -22,7 +19,6 @@
         android:layout_weight="0.5"
         android:orientation="vertical">
 
-        //「お天気詳細」と表示する
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,21 +27,18 @@
             android:text="@string/tv_winfo_title"
             android:textSize="25sp"/>
 
-        //都市名と天気を横並びにするためのLinearLayout
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            //都市名を表示するTextView
             <TextView
                 android:id="@+id/tvCityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"/>
 
-            //天気を表示するTextView
             <TextView
                 android:id="@+id/tvWeatherTelop"
                 android:layout_width="0dp"
@@ -55,16 +48,14 @@
 
         </LinearLayout>
 
-        //天気の詳細情報部分がスクロールできるようにする画面部分
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            //天気の詳細情報を表示する
             <TextView
                 android:id="@+id/tvWeatherDesc"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="15sp"/>
         </ScrollView>
 
