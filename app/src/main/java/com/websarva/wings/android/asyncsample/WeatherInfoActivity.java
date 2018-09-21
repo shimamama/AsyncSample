@@ -123,7 +123,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
         /**
          * 天気の詳細を表示する画面部品フィールド
          */
-        private TextView _tvWeatherDesc;
+        private TextView _tvWeatherDesk;
 
         /**
          * コンストラクタ
@@ -132,7 +132,7 @@ public class WeatherInfoActivity extends AppCompatActivity {
         public WeatherInfoReceiver(TextView tvWeatherTelop, TextView tvWeatherDesc){
             //引数をそれぞれのフィールドに格納
             _tvWeatherTelop = tvWeatherTelop;
-            _tvWeatherDesc = tvWeatherDesc;
+            _tvWeatherDesk = tvWeatherDesc;
         }
 
         @Override
